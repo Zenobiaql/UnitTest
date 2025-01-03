@@ -18,7 +18,7 @@ def exp_signal(mag, tail):
     return sequence
 
 # Write DFT results to file
-file_path = 'dft.txt'
+file_path = '/mnt/data-qilin/0103-ResourceUsing/dft.txt'
 
 # Check if the file exists, if not create a new file
 if not os.path.exists(file_path):
