@@ -30,3 +30,30 @@ with open(file_path, 'w') as f:
     f.write(f'{loaded_tensor}\n')
 
 print("Tensor has been written to 'tensors.txt' successfully.")
+# Step 5: Perform Singular Value Decomposition (SVD) on the loaded tensor
+U, S, V = torch.svd(loaded_tensor)
+
+# Step 6: Print the results of the SVD
+print("\nU Matrix:")
+print(U)
+print("\nSingular Values:")
+print(S)
+print("\nV Matrix:")
+print(V)
+
+file_path_svd = '/mnt/data-qilin/0103-ResourceUsing/tensors_svd.txt'
+
+if not os.path.exists(file_path_svd):
+    with open(file_path_svd, 'w') as f:
+        pass  # Create an empty file
+
+# Save the SVD results to the file
+with open(file_path_svd, 'a') as f:
+    f.write("\nU Matrix:\n")
+    f.write(f'{U}\n')
+    f.write("\nSingular Values:\n")
+    f.write(f'{S}\n')
+    f.write("\nV Matrix:\n")
+    f.write(f'{V}\n')
+
+print("SVD results have been written to 'tensors.txt' successfully.")
