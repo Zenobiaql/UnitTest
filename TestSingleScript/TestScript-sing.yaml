@@ -42,4 +42,4 @@ jobs:
 
     command:
       - cd UnitTest/TestSingleScript
-      - python decorator-test.py config.yaml
+      - python decorator-test.py
