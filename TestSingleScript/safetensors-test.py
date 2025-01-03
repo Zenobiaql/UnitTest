@@ -1,19 +1,19 @@
-import os
 import torch
-import safetensors.torch as st
+from safetensors.torch import save_file, load_file
 
-random_tensor = torch.rand(10000, 10000)
+# Step 1: Initialize a random tensor
+random_tensor = torch.rand(2, 3)
+print("Original Tensor:")
+print(random_tensor)
 
-file_path = '/mnt/data-qilin/0103-ResourceUsing/test-tensor.safetensors'
+# Step 2: Save the tensor to a safetensors file
+tensors = {"random_tensor": random_tensor}
+save_file(tensors, "/mnt/data-qilin/0103-ResourceUsing/random_tensor.safetensors")
 
-if not os.path.exists(file_path):
-    with open(file_path, 'w') as f:
-        pass
+# Step 3: Load the tensor back from the safetensors file
+loaded_tensors = load_file("/mnt/data-qilin/0103-ResourceUsing/random_tensor.safetensors")
+loaded_tensor = loaded_tensors["random_tensor"]
 
-st.save_file = (random_tensor, file_path)
-
-tensors = {}
-with st.safe_open(file_path, framework = "pt", device = 0) as f:
-    for k in f.keys():
-        tensors[k] = f.get_tensor(k)
-print(tensors)
+# Step 4: Print the loaded tensor
+print("\nLoaded Tensor:")
+print(loaded_tensor)
