@@ -11,3 +11,9 @@ if not os.path.exists(file_path):
         pass
 
 st.save_file = (random_tensor, file_path)
+
+tensors = {}
+with st.safe_open(file_path, framework = "pt", device = 0) as f:
+    for k in f.keys():
+        tensors[k] = f.get_tensor(k)
+print(tensors)
