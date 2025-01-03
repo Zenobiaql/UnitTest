@@ -2,7 +2,7 @@ import os
 import torch
 import safetensors.torch as st
 
-random_tensor = torch.rand(3, 3)
+random_tensor = torch.rand(10000, 10000)
 
 file_path = '/mnt/data-qilin/0103-ResourceUsing/test-tensor.safetensors'
 
