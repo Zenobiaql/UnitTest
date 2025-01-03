@@ -42,4 +42,4 @@ jobs:
 
     command:
       - cd UnitTest/TestSingleScript
-      - python safetensors-test.py
+      - python decorator-test.py
